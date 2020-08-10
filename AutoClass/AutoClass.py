@@ -15,8 +15,34 @@ from tensorflow.keras.utils import to_categorical
 import time
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 
-def AutoClassImpute(data,cellwise_norm=True,log1p=True,encoder_layer_size=[256,128],dropout_rate=0,epochs=300,classifier_weight=0.3,
-                    num_cluster=[4,5,6],reg_ae=0.001,reg_cf=0.001,batch_size=32,verbose=False,truelabel=[],
+def take_norm(data,cellwise_norm=True,log1p=True):    
+    data_norm = data.copy()
+    data_norm = data_norm.astype('float32')
+    if cellwise_norm:
+        libs = data.sum(axis = 1)
+        norm_fact = np.diag(np.median(libs)/libs)
+        data_norm = np.dot(norm_fact,data_norm)
+        
+    if log1p:
+        data_norm = np.log2(data_norm + 1.)
+    return data_norm
+def find_hv_genes(X,top = 1000):
+    ngene = X.shape[1]
+    CV = []
+    for i in range(ngene):
+        x = X[:,i]
+        x = x[x!=0]
+        mu = np.mean(x)
+        var = np.var(x)
+        CV.append(var/mu)
+    CV = np.array(CV)
+    rank = CV.argsort()
+    hv_genes = np.arange(len(CV))[rank[:-1*top-1:-1]]
+    return hv_genes
+
+def AutoClassImpute(data,cellwise_norm=True,log1p=True,num_cluster=[8,9,10],
+                    encoder_layer_size=[128],dropout_rate=0,epochs=300,classifier_weight=0.3,
+                    reg_ae=0.001,reg_cf=0.001,batch_size=32,verbose=False,truelabel=[],
                     npc=15,es=30,lr=15):
     """AutoClass imputation main function.
     Autoencoder based scRNA-seq data imputation network,
@@ -67,20 +93,15 @@ def AutoClassImpute(data,cellwise_norm=True,log1p=True,encoder_layer_size=[256,1
            
     Returns:
     ---------
-    Both normalized imputation matix and network information are returned.
+    Normalized imputation matix, model information and losses are returned.
     
     """
     t1 = time.time()
     AC = AutoClass()
-    if cellwise_norm:
-        libs = data.sum(axis = 1)
-        norm_fact = np.diag(np.median(libs)/libs)
-        data = np.dot(norm_fact,data)
-        
-    if log1p:
-        data = np.log2(data + 1.)    
-        
-        
+    data = data.astype('float32')
+    
+    data = take_norm(data,cellwise_norm=cellwise_norm,log1p=log1p)
+                
     AC.set_input_data(data)
     AC.set_dropout_rate(dropout_rate)
     AC.set_epochs(epochs)
@@ -99,20 +120,24 @@ def AutoClassImpute(data,cellwise_norm=True,log1p=True,encoder_layer_size=[256,1
     ncell = AC.ncell
     ngene = AC.ngene
     print('{} cells and {} genes'.format(ncell,ngene))
-    ACs = []
+    models = []
+    loss_history=[]
     if classifier_weight == 0:
         print('no classifier layer')
         AC.create_model()
         AC.run_model()
-        ACs.append(AC)
+        models.append(AC.model)
+        loss_history.append(AC.his.history)
         imps = AC.imp
+        
     else:
         if len(truelabel)>0:
             print('use true label')
             AC.set_truelabel(truelabel)
             AC.create_model()
             AC.run_model()
-            ACs.append(AC)
+            models.append(AC.model)
+            loss_history.append(AC.his.history)
             imps = AC.imp
         else: 
             imps = np.zeros((ncell,ngene))
@@ -123,10 +148,11 @@ def AutoClassImpute(data,cellwise_norm=True,log1p=True,encoder_layer_size=[256,1
                 AC.create_model()
                 AC.run_model()
                 imps = imps + AC.imp
-                ACs.append(AC)
+                models.append(AC.model)
+                loss_history.append(AC.his.history)
             imps = imps / len(num_cluster)
     print('escape time is: {}'.format(time.time()-t1))
-    return imps, ACs
+    return {'imp':imps,'model':models,'loss_history':loss_history}
                 
                 
         
@@ -283,7 +309,9 @@ class AutoClass(object):
             self.imp = self.model.predict(self.input_data)[1]
             
 
-            
+if __name__ == '__main__':
+    expr = np.random.poisson(lam=10,size=(100,100))
+    res = AutoClassImpute(expr,encoder_layer_size=[128])         
         
             
             
