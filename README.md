@@ -5,4 +5,4 @@ the classifier branch is needed for noise removal and signal retention. When cel
 
 ![diagram_only](https://user-images.githubusercontent.com/45580592/88548409-0e292e00-cfed-11ea-99e6-03fb82d544e4.png)
 
-See [tutorial](https://github.com/datapplab/AutoClass/blob/master/Tutorial.ipynb) for more details on how use AutoClass moduel.
+See [tutorial](https://github.com/datapplab/AutoClass/blob/master/Tutorial.ipynb) for more details on how to use AutoClass moduel.
