@@ -46,7 +46,7 @@ def find_hv_genes(X, top=1000):
     return hv_genes
 
 
-def AutoClassImpute(data, cellwise_norm=True, log1p=True, num_cluster=[8, 9, 10],
+def AutoClassImpute(data, cellwise_norm=True, log1p=True, num_cluster=9,
                     encoder_layer_size=[128], dropout_rate=0.1, classifier_weight=0.9,
                     truelabel=[], reg=0.000, batch_size=32, epochs=300,
                     verbose=False, npc=15, es=30, lr=15):
@@ -75,7 +75,7 @@ def AutoClassImpute(data, cellwise_norm=True, log1p=True, num_cluster=[8, 9, 10]
            Number of total epochs.
     classifier_weight: 'float'. Default: 0.9.
            Loss weight for classification.
-    num_cluster: 'tuple' or 'list'. Default: [8,9,10].
+    num_cluster: 'tuple', 'list' or 'int'. Default: 9.
            Numbers of clusters in the preclustering step.
     reg: 'float'. Default: 0.000.
            l2 kernel regularizer coefficient.
@@ -152,6 +152,8 @@ def AutoClassImpute(data, cellwise_norm=True, log1p=True, num_cluster=[8, 9, 10]
             imps = imps / 3
         else:
             imps = np.zeros((ncell, ngene))
+            if type(num_cluster) == int:
+                num_cluster = [np.max((1,num_cluster-1)),num_cluster,num_cluster+1]
             print('number of clusters in pre-clustering:{}'.format(num_cluster))
             for n_cluster in num_cluster:
                 print('n_cluster = {}...'.format(n_cluster))
@@ -339,5 +341,7 @@ class AutoClass(object):
                                       validation_split=0.1, callbacks=CallBacks, shuffle=True)
             self.imp = self.model.predict(self.input_data)[1]
 
-
+if __name__ == "__main__":
+    x = np.random.rand(300,100)
+    res = AutoClassImpute(x,num_cluster=[4,6,8])
 
