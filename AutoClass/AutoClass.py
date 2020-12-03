@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Aug 24 10:52:29 2020
+Created on Mon Dec 3 15:35:29 2020
 
 @author: hli45
 """
@@ -70,7 +70,7 @@ def AutoClassImpute(data, cellwise_norm=True, log1p=True, num_cluster=9,
     encoder_layer_size: 'tuple' or 'list'. Default: [128].
            Number of neurons in the encoder layers.
     dropout_rate: `float`. Default: 0.1.
-           Probability of dropout in each layer
+           Probability of dropout in the bottleneck layer
     epochs: 'int'. Default: 300.
            Number of total epochs.
     classifier_weight: 'float'. Default: 0.9.
@@ -258,10 +258,9 @@ class AutoClass(object):
 
     def create_model(self):
         self.input_layer = tf.keras.layers.Input(shape=(self.ngene,))
-        if self.dropout_rate > 0:
-            mid_layer = tf.keras.layers.Dropout(self.dropout_rate)(self.input_layer)
-        else:
-            mid_layer = self.input_layer
+        
+        
+        mid_layer = self.input_layer
 
         len_layer = len(self.encoder_layer_size)
 
@@ -271,8 +270,7 @@ class AutoClass(object):
             mid_layer = tf.keras.layers.Dense(l_size, activation=tf.nn.relu,
                                               kernel_regularizer= \
                                                   tf.keras.regularizers.l2(self.reg))(mid_layer)
-            if self.dropout_rate > 0:
-                mid_layer = tf.keras.layers.Dropout(self.dropout_rate)(mid_layer)
+            
 
         # bottleneck
         mid_layer = tf.keras.layers.Dense(self.encoder_layer_size[-1], \
@@ -290,8 +288,7 @@ class AutoClass(object):
             mid_layer_d = tf.keras.layers.Dense(l_size, activation=tf.nn.relu,
                                                 kernel_regularizer= \
                                                     tf.keras.regularizers.l2(self.reg))(mid_layer_d)
-            if self.dropout_rate > 0:
-                mid_layer_d = tf.keras.layers.Dropout(self.dropout_rate)(mid_layer_d)
+            
 
         self.decode_layer = tf.keras.layers.Dense(self.ngene, activation=tf.nn.softplus, \
                                                   name='reconstruction',
