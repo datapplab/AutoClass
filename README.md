@@ -10,7 +10,7 @@ the classifier branch is needed for noise removal and signal retention. When cel
 
 Please cite our paper when using this open-source module or the AutoClass method:
 
-Li H, Brouwer C, Luo W. Composite Deep Neural Network for In-Depth Cleaning of Single-Cell RNA-Seq Data. 
+Li H, Brouwer C, Luo W. A Universal and Robust Deep Neural Network for Single-Cell RNA-Seq Data Cleaning. 
 
 
 
