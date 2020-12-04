@@ -1,4 +1,5 @@
-## AutoClass: Composite Deep Neural Network for In-Depth Cleaning of Single-Cell RNA-Seq Data
+## AutoClass: A Universal Deep Neural Network for In-Depth Cleaning of Single-Cell
+
 ### Overview
 
 AutoClass is a neural network-based tool for scRNA-Seq data imputation. It consists of an autoencoder and a classifier, 
