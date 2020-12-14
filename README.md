@@ -33,11 +33,11 @@ git clone https://github.com/datapplab/AutoClass
 
 ### Usage
 In this repository, you can find several tutorials on AutoClass with Full examples.
-* [Introductory tutorial](Tutorial.ipynb)[![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Tutorial.ipynb)
-* [Example analysis with simulated scRNA-Seq data (Dataset 1 in the paper)](Examples/Analysis_on_Dataset1.ipynb)[![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Examples/Analysis_on_Dataset1.ipynb)
-* [Example analysis with real scRNA-Seq data (Baron Dataset in the paper)](Examples/Baron_dataset.ipynb)[![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Examples/Baron_dataset.ipynb)
-* [Denoising multiple types of noise beyond dropout](Examples/Denoise_Other_Noise_Types.ipynb)[![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Examples/Denoise_Other_Noise_Types.ipynb)
-* [Denoising and clustering of multiple real scRNA-Seq datasets](Examples/Real_datasets_clustering.ipynb)[![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Examples/Real_datasets_clustering.ipynb)
+* [Introductory tutorial](Tutorial.ipynb)   [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Tutorial.ipynb)
+* [Example analysis with simulated scRNA-Seq data (Dataset 1 in the paper)](Examples/Analysis_on_Dataset1.ipynb)   [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Examples/Analysis_on_Dataset1.ipynb)
+* [Example analysis with real scRNA-Seq data (Baron Dataset in the paper)](Examples/Baron_dataset.ipynb)   [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Examples/Baron_dataset.ipynb)
+* [Denoising multiple types of noise beyond dropout](Examples/Denoise_Other_Noise_Types.ipynb)   [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Examples/Denoise_Other_Noise_Types.ipynb)
+* [Denoising and clustering of multiple real scRNA-Seq datasets](Examples/Real_datasets_clustering.ipynb)   [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/datapplab/AutoClass/blob/master/Examples/Real_datasets_clustering.ipynb)
 
 Demo datasets used in these tutorials can be found in the [datasets directory](datasets/).
 
