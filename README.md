@@ -1,10 +1,10 @@
-## AutoClass: A Universal Deep Neural Network for In-Depth Cleaning of Single-Cell scRNA-Seq Data
+## AutoClass: A Universal Deep Neural Network for In-Depth Cleaning of Single-Cell RNA-Seq Data
 
 ### Citation
 
 Please cite our paper when using this open-source module or the AutoClass method:
 
-Li H, Brouwer C, Luo W. A Universal Deep Neural Network for In-Depth Cleaning of Single-Cell scRNA-Seq Data. 2020, submitted, <a href=https://doi.org/10.1101/2020.12.04.412247>bioRxiv preprint</a>
+Li H, Brouwer C, Luo W. A Universal Deep Neural Network for In-Depth Cleaning of Single-Cell RNA-Seq Data. 2020, submitted, <a href=https://doi.org/10.1101/2020.12.04.412247>bioRxiv preprint</a>
 
 
 ### Overview
