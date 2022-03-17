@@ -1,5 +1,7 @@
 ## AutoClass: A Universal Deep Neural Network for In-Depth Cleaning of Single-Cell RNA-Seq Data
 
+[![DOI](https://zenodo.org/badge/282904994.svg)](https://zenodo.org/badge/latestdoi/282904994)
+
 ### Citation
 
 Please cite our paper when using this open-source module or the AutoClass method:
