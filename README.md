@@ -44,6 +44,6 @@ Demo datasets used in these tutorials can be found in the [datasets directory](d
 ### More information
 
 Please check the tutorials, module documentation and the AutoClass paper for more info.
-You can reach the author at hli45[AT]uncc.edu or luo_weijun[AT]yahoo.com.
+You can reach the author at hli15[AT]tulane.edu or luo_weijun[AT]yahoo.com.
 
 Thank you for your interest.
