@@ -21,7 +21,9 @@ AutoClass has 3 important features:
 <p align="center">
 <a href=https://doi.org/10.1038/s41467-022-29576-y><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-022-29576-y/MediaObjects/41467_2022_29576_Fig1_HTML.png" width="600"></a>
 </p>
-
+<p align = "center">
+Fig. 1: AutoClass integrates a classifier to a regular autoencoder, as to fully reconstruct scRNA-Seq data.
+</p>
 
 ### Installation (unix/linux/bash command line)
 
