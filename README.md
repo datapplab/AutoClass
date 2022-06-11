@@ -18,9 +18,9 @@ AutoClass has 3 important features:
 * AutoClass outperforms the state-of-art methods in multiple types of scRNA-Seq data analyses: i.e. data recovery, differential expression, clustering analysis and batch effect removal. 
 * AutoClass is robust on key hyperparameter settings: i.e. bottleneck layer size, pre-clustering number and classifier weight.
 
-
-<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-022-29576-y/MediaObjects/41467_2022_29576_Fig1_HTML.png" width="600" align="center">
-
+<p align="center">
+<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-022-29576-y/MediaObjects/41467_2022_29576_Fig1_HTML.png" width="600">
+</p>
 ### Installation (unix/linux/bash command line)
 
 You can download AutoClass module from GitHub. AutoClass runs with Python 3, and you need to have TensorFlow (>=2.0) and a few other pacakges installed first(as below).
