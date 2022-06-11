@@ -6,7 +6,7 @@
 
 Please cite our paper when using this open-source module or the AutoClass method:
 
-Li H, Brouwer CR, Luo W. A Universal Deep Neural Network for In-Depth Cleaning of Single-Cell RNA-Seq Data. 2022,  Nature Communications 13, 1901 (2022). <a href=https://doi.org/10.1038/s41467-022-29576-y>https://doi.org/10.1038/s41467-022-29576-y</a>
+Li H, Brouwer CR, Luo W. A Universal Deep Neural Network for In-Depth Cleaning of Single-Cell RNA-Seq Data. Nature Communications, 2022, 13:1901, <a href=https://doi.org/10.1038/s41467-022-29576-y>https://doi.org/10.1038/s41467-022-29576-y</a>
 
 
 
@@ -19,7 +19,7 @@ AutoClass has 3 important features:
 * AutoClass is robust on key hyperparameter settings: i.e. bottleneck layer size, pre-clustering number and classifier weight.
 
 
-![diagram_only](https://user-images.githubusercontent.com/45580592/88548409-0e292e00-cfed-11ea-99e6-03fb82d544e4.png)
+![diagram_only](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-022-29576-y/MediaObjects/41467_2022_29576_Fig1_HTML.png)
 
 ### Installation (unix/linux/bash command line)
 
