@@ -19,7 +19,7 @@ AutoClass has 3 important features:
 * AutoClass is robust on key hyperparameter settings: i.e. bottleneck layer size, pre-clustering number and classifier weight.
 
 
-![diagram_only](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-022-29576-y/MediaObjects/41467_2022_29576_Fig1_HTML.png){width=250}
+![diagram_only](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-022-29576-y/MediaObjects/41467_2022_29576_Fig1_HTML.png){width=250px}
 
 ### Installation (unix/linux/bash command line)
 
